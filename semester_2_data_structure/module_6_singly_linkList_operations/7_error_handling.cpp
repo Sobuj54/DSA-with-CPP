@@ -79,7 +79,6 @@ void deleteFromPosition(Node *head, int pos)
             return;
         }
     }
-
     if (temp->next == NULL)
     {
         cout << "Invalid Index" << endl;
@@ -88,6 +87,18 @@ void deleteFromPosition(Node *head, int pos)
     Node *del = temp->next;
     temp->next = temp->next->next;
     delete del;
+}
+
+void deleteHead(Node *&head)
+{
+    if (head == NULL)
+    {
+        cout << "Head is null" << endl;
+        return;
+    }
+    Node *temp = head;
+    head = head->next;
+    delete temp;
 }
 
 int main()
@@ -100,7 +111,8 @@ int main()
         cout << "Enter option 3: insert at position \n";
         cout << "Enter option 4: insert at head \n";
         cout << "Enter option 5: delete at position \n";
-        cout << "Enter option 6: Terminate \n";
+        cout << "Enter option 6: delete head \n";
+        cout << "Enter option 7: Terminate \n";
         int op;
         cin >> op;
         if (op == 1)
@@ -141,7 +153,16 @@ int main()
             int pos;
             cout << "enter postion to delete : ";
             cin >> pos;
-            deleteFromPosition(head, pos);
+            if (pos == 0)
+            {
+                deleteHead(head);
+            }
+            else
+                deleteFromPosition(head, pos);
+        }
+        else if (op == 6)
+        {
+            deleteHead(head);
         }
         else
         {
