@@ -120,5 +120,27 @@ int main()
     insert_at_tail(head, tail, 400);
     print(head);
     print_reverse(tail);
+
+    int pos, val;
+    cin >> pos >> val;
+
+    if (pos > size(head))
+    {
+        cout << "Invalid" << endl;
+    }
+    else if (pos == 0)
+    {
+        insert_at_head(head, tail, val);
+    }
+    else if (pos == size(head))
+    {
+        insert_at_tail(head, tail, val);
+    }
+    else
+    {
+        insert_at_position(head, pos, val);
+    }
+    print(head);
+    print_reverse(tail);
     return 0;
 }
