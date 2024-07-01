@@ -41,19 +41,29 @@ void delete_at_position(Node *head, int pos)
     delete del;
 }
 
-void delete_at_tail(Node *&tail)
+void delete_at_tail(Node *&head, Node *&tail)
 {
     Node *del = tail;
     tail = tail->prev;
     delete del;
+    if (tail == NULL)
+    {
+        head = NULL;
+        return;
+    }
     tail->next = NULL;
 }
 
-void delete_head(Node *&head)
+void delete_head(Node *&head, Node *&tail)
 {
     Node *del = head;
     head = head->next;
     delete del;
+    if (head == NULL)
+    {
+        tail = NULL;
+        return;
+    }
     head->prev = NULL;
 }
 
@@ -102,11 +112,11 @@ int main()
     }
     else if (pos == 0)
     {
-        delete_head(head);
+        delete_head(head, tail);
     }
     else if (pos == size(head) - 1)
     {
-        delete_at_tail(tail);
+        delete_at_tail(head, tail);
     }
     else
     {
