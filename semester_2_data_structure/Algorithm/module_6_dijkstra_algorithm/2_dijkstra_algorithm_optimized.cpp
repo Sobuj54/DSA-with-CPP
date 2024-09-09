@@ -1,4 +1,4 @@
-// complexity is O(V*E)
+// complexity O((V+E)*logV) => O(V*logV)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,15 +6,24 @@ const int N = 100;
 vector<pair<int, int>> v[N];
 int dis[N];
 
+class cmp
+{
+public:
+    bool operator()(pair<int, int> a, pair<int, int> b)
+    {
+        return a.second > b.second;
+    }
+};
+
 void bfs(int src)
 {
-    queue<pair<int, int>> q;
-    q.push({src, 0});
+    priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
+    pq.push({src, 0});
     dis[src] = 0;
-    while (!q.empty())
+    while (!pq.empty())
     {
-        pair<int, int> parent = q.front();
-        q.pop();
+        pair<int, int> parent = pq.top();
+        pq.pop();
 
         int parentNode = parent.first;
         int parentCost = parent.second;
@@ -26,7 +35,7 @@ void bfs(int src)
             if (parentCost + childCost < dis[childNode])
             {
                 dis[childNode] = parentCost + childCost;
-                q.push({childNode, dis[childNode]});
+                pq.push({childNode, dis[childNode]});
             }
         }
     }
