@@ -5,7 +5,7 @@ const int N = 1e+5;
 vector<int> adj[N];
 bool vis[N];
 int parentArray[N];
-int pathVisit[N];
+bool pathVisit[N];
 bool found;
 
 void dfs(int src)

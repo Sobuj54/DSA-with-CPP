@@ -3,12 +3,12 @@
 using namespace std;
 
 const int N = 100;
-vector<pair<int, int>> v[N];
+vector<pair<int, int> > v[N];
 int dis[N];
 
 void bfs(int src)
 {
-    queue<pair<int, int>> q;
+    queue<pair<int, int> > q;
     q.push({src, 0});
     dis[src] = 0;
     while (!q.empty())
