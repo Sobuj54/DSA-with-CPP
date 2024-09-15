@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/island-perimeter/description/
-
 class Solution
 {
 public:
@@ -9,10 +7,7 @@ public:
 
     bool isValid(int i, int j)
     {
-        if (i >= 0 && i < row && j >= 0 && j < col)
-            return true;
-        else
-            return false;
+        return i >= 0 && i < row && j >= 0 && j < col;
     }
 
     void dfs(int si, int sj, vector<vector<int>> &grid)
