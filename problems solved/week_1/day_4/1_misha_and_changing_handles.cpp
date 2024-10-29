@@ -8,7 +8,7 @@ int main()
 
     int n;
     cin >> n;
-    map<string, pair<string, string>> mp;
+    map<string, pair<string, string> > mp;
 
     string old, cur;
     cin >> old >> cur;
