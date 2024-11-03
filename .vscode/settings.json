@@ -8,6 +8,7 @@
         "string_view": "cpp",
         "span": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "future": "cpp"
     }
 }
