@@ -9,6 +9,7 @@
         "span": "cpp",
         "iostream": "cpp",
         "iosfwd": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "ostream": "cpp"
     }
 }
