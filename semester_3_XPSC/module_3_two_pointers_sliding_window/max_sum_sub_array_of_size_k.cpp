@@ -26,3 +26,26 @@ public:
         return mx;
     }
 };
+
+// different approach
+class Solution
+{
+public:
+    long long maximumSumSubarray(vector<int> &a, int k)
+    {
+        long long l = 0, r = 0, mx = 0, sum = 0;
+        while (r < a.size())
+        {
+            sum += a[r];
+            if (r - l + 1 == k)
+            {
+                mx = max(sum, mx);
+                sum -= a[l];
+                l++;
+            }
+
+            r++;
+        }
+        return mx;
+    }
+};
