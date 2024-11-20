@@ -11,5 +11,6 @@
         "iosfwd": "cpp",
         "future": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
