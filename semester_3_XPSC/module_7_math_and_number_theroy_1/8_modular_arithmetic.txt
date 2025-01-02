@@ -1,0 +1,27 @@
+Modular arithmetic:
+
+    1. Modular Addition
+    2. Modular Subtraction
+    3. Modular Multiplication
+    4. Modular Division (we will not learn this here)
+
+let mod be 10^9
+
+1. Modular Addition:
+    (a + b) % mod
+    (a%mod + b%mod) % mod 
+both are same but 2nd one is best
+
+1. Modular Subtraction:
+    (a - b) % mod
+    (a%mod - b%mod) % mod 
+both are same but 2nd one is best
+
+1. Modular Multiplication:
+    (a * b) % mod
+    (a%mod * b%mod) % mod 
+both are same but 2nd one is best
+
+for three variables
+    (a * b * c) % mod
+    ((a%mod * b%mod) * c%mod) %mod 
