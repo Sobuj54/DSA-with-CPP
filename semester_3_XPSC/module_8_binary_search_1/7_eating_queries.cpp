@@ -28,20 +28,25 @@ int main()
             cin >> val;
             int l = 0, r = n - 1;
             int idx = -1;
-            while (l <= r)
-            {
-                int mid = (l + r) / 2;
+            // while (l <= r)
+            // {
+            //     int mid = (l + r) / 2;
 
-                if (a[mid] >= val)
-                {
-                    idx = mid + 1;
-                    r = mid - 1;
-                }
-                else
-                {
-                    l = mid + 1;
-                }
-            }
+            //     if (a[mid] >= val)
+            //     {
+            //         idx = mid + 1;
+            //         r = mid - 1;
+            //     }
+            //     else
+            //     {
+            //         l = mid + 1;
+            //     }
+            // }
+
+            // another way
+            auto it = lower_bound(a.begin(), a.end(), val);
+            if (it != a.end())
+                idx = (it - a.begin()) + 1;
 
             cout << idx << "\n";
         }
