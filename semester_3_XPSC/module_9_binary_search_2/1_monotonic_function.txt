@@ -1,0 +1,8 @@
+
+Monotonic function:
+    ex: f(x) = x^2 + 10
+
+    1. value of this will keep increasing no matter what value is given(from 0 to N)
+    2. value of this will keep decreasing no matter what value is given(from N to 0)
+
+If any function meets the above two criteria then we call that function monotonic.
