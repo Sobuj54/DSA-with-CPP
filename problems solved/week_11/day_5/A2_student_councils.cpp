@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 int main()
 {
@@ -14,9 +15,9 @@ int main()
         cin >> a[i];
     }
 
-    auto ok = [&](int councils)
+    auto ok = [&](ll councils)
     {
-        int sum = 0;
+        ll sum = 0;
         for (int i = 0; i < n; i++)
         {
             if (a[i] > councils)
@@ -27,10 +28,10 @@ int main()
         return (sum / councils) >= k;
     };
 
-    int l = 0, r = 1e9;
+    ll l = 0, r = 1e18;
     while (l + 1 < r)
     {
-        int mid = (l + r) / 2;
+        ll mid = (l + r) / 2;
         if (ok(mid))
         {
             l = mid;
