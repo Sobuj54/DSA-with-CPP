@@ -3,7 +3,9 @@ using namespace std;
 
 long long gcd(long long a, long long b)
 {
-    return b == 0 ? a : gcd(b, a % a);
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
 }
 
 int main()
@@ -11,56 +13,54 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    long long t;
+    int t;
     cin >> t;
     while (t--)
     {
         long long n;
         cin >> n;
-
-        vector<long long> v(n);
-        for (long long i = 0; i < n; ++i)
+        vector<long long> a;
+        a.resize(n);
+        for (int i = 0; i < n; ++i)
         {
-            cin >> v[i];
+            cin >> a[i];
         }
 
-        sort(v.begin(), v.end());
-
-        long long gc = 0;
-        for (long long i = 1; i < n; ++i)
+        if (n == 1)
         {
-            gc = gcd(gc, v[i] - v[0]);
+            cout << 1 << endl;
+            continue;
         }
 
-        long long take = v[n - 1];
-        long long l = 0;
+        vector<long long> list = a;
+        sort(list.begin(), list.end());
 
-        if (gc != 0)
+        long long max_val = list[n - 1];
+        long long x = 0;
+
+        for (long long i : list)
         {
-            for (long long i = 0; i < n; ++i)
-            {
-                l += (take - v[i]) / gc;
-            }
-
-            for (long long i = 1; i <= n; ++i)
-            {
-                long long m = take - gc * i;
-                if (!binary_search(v.begin(), v.end(), m))
-                {
-                    l += i;
-                    break;
-                }
-            }
+            if (i == max_val)
+                break;
+            x = gcd(x, max_val - i);
         }
 
-        if (gc == 0 || n == 1)
+        long long operation = 1;
+        for (long long i : list)
         {
-            cout << n << endl;
+            operation += (max_val - i) / x;
         }
-        else
+
+        long long last_value = max_val - x;
+        for (int i = n - 2; i >= 0; --i)
         {
-            cout << l << endl;
+            if (last_value != list[i])
+                break;
+            last_value -= x;
+            ++operation;
         }
+
+        cout << operation << endl;
     }
 
     return 0;
