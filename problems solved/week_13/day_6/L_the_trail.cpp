@@ -1,39 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 void solve()
 {
-    int n, m;
+    ll n, m;
     cin >> n >> m;
-    vector<vector<int> > A(n, vector<int>(m));
+    vector<vector<ll> > A(n, vector<ll>(m));
     string s;
     cin >> s;
 
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (ll j = 0; j < m; j++)
         {
             cin >> A[i][j];
         }
     }
 
-    vector<int> R(n), C(m);
-    for (int i = 0; i < n; i++)
+    vector<ll> R(n), C(m);
+    for (ll i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (ll j = 0; j < m; j++)
         {
             R[i] += A[i][j];
         }
     }
-    for (int j = 0; j < m; j++)
+    for (ll j = 0; j < m; j++)
     {
-        for (int i = 0; i < n; i++)
+        for (ll i = 0; i < n; i++)
         {
             C[j] += A[i][j];
         }
     }
 
-    int x = 0, y = 0, cnt = 0;
+    ll x = 0, y = 0, cnt = 0;
     while (cnt < n + m - 1)
     {
         if (s[cnt] == 'D')
@@ -53,9 +54,9 @@ void solve()
         cnt++;
     }
 
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (ll j = 0; j < m; j++)
         {
             cout << A[i][j] << " ";
         }
@@ -68,7 +69,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
