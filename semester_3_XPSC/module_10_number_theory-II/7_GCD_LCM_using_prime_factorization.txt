@@ -1,0 +1,15 @@
+
+1. gcd using prime factorization
+
+    a = p1^e1, p2^e2, p3^e3, p4^e4
+    b = p1^E1, p2^E2, p3^E3, p4^E4
+
+    gcd = p1^min(e1,E1) * p2^min(e2,E2) * p3^min(e3,E3) * p4^min(e4,E4)
+
+
+2. lcm using prime factorization
+
+    a = p1^e1, p2^e2, p3^e3, p4^e4
+    b = p1^E1, p2^E2, p3^E3, p4^E4
+
+    lcm = p1^max(e1,E1) * p2^max(e2,E2) * p3^max(e3,E3) * p4^max(e4,E4)
